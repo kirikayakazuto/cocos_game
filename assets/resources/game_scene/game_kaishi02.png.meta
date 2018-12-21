@@ -1,0 +1,30 @@
+{
+  "ver": "2.0.0",
+  "uuid": "ac44fc69-e979-47b2-a738-7ecdd0182e98",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "game_kaishi02": {
+      "ver": "1.0.3",
+      "uuid": "06208440-889d-463e-81d7-0f449cfe2cb4",
+      "rawTextureUuid": "ac44fc69-e979-47b2-a738-7ecdd0182e98",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 8,
+      "trimY": 4,
+      "width": 206,
+      "height": 76,
+      "rawWidth": 222,
+      "rawHeight": 84,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

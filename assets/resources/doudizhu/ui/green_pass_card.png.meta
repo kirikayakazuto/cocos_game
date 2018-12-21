@@ -1,0 +1,30 @@
+{
+  "ver": "2.0.0",
+  "uuid": "bc529a6d-8c69-4cda-9117-546ae449acd7",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "green_pass_card": {
+      "ver": "1.0.3",
+      "uuid": "3fc42766-b964-497b-9749-bf4b67b6cab2",
+      "rawTextureUuid": "bc529a6d-8c69-4cda-9117-546ae449acd7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 93,
+      "height": 48,
+      "rawWidth": 94,
+      "rawHeight": 48,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
