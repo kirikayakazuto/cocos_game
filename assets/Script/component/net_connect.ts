@@ -19,8 +19,8 @@ export default class net_connect extends cc.Component {
     }
 
     get_server_info() {
-        // let url = "http://127.0.0.1:10001";
-        let url = "http://106.13.53.55:10001";
+        let url = "http://127.0.0.1:10001";
+        // let url = "http://106.13.53.55:10001";
         http.get(url, "/server_info", null, (err, ret) => {
             if(err) {
                 console.log(err);

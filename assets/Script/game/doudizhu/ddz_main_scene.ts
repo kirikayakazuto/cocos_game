@@ -51,6 +51,8 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     tishiPanel_prefab: cc.Prefab = null;
+    @property(cc.Prefab)
+    history_panel: cc.Prefab = null;
 
 
     service_handlers: {[key: string]: any} = {};
@@ -68,7 +70,7 @@ export default class NewClass extends cc.Component {
      * ---------------------- 五子棋服务器GAME_FIVE_CHESS 返回的消息 --------------------------
      */
     on_dou_di_zhu_server_return(stype: number, ctype: number, body) {
-        console.log(stype + " " + ctype +  " " + body);
+        console.log(stype , ctype, body);
         switch(ctype) {
             case Cmd.GameDouDiZhu.ENTER_ZONE:
                 this.enter_zone_return(body);
@@ -84,6 +86,9 @@ export default class NewClass extends cc.Component {
             break;
             case Cmd.GameDouDiZhu.RECONNECT:
                 this.player_reconnect_return(body);
+            break;
+            case Cmd.GameDouDiZhu.GET_HISTORY:
+                this.get_history_return(body);
             break;
             
         }
@@ -228,7 +233,20 @@ export default class NewClass extends cc.Component {
             });
         });
     }
+    /**
+     * 获取历史记录
+     * @param body 
+     */
+    get_history_return(body: any) {
     
+        if(body[0] != Response.OK) {
+            console.log("get_history_return error");
+            return ;
+        }
+        let node = cc.instantiate(this.history_panel);
+        node.getComponent("history_panel").add_item_to_content(body[1]);
+        node.parent = this.centerNode;
+    }
     
 
     sync_info() {
@@ -272,6 +290,8 @@ export default class NewClass extends cc.Component {
      */
     record_button_click(e, data) {
         console.log("战绩");
+        dou_di_zhu.get_history_record();
+
     }
     /**
      * 设置

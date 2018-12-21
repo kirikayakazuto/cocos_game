@@ -2218,7 +2218,7 @@
     "target": {
       "__id__": 2
     },
-    "component": "ddz_game_scene",
+    "component": "ddz_main_scene",
     "handler": "wanfa_button_click",
     "customEventData": ""
   },
@@ -2364,7 +2364,7 @@
     "target": {
       "__id__": 2
     },
-    "component": "ddz_game_scene",
+    "component": "ddz_main_scene",
     "handler": "record_button_click",
     "customEventData": ""
   },
@@ -2510,7 +2510,7 @@
     "target": {
       "__id__": 2
     },
-    "component": "ddz_game_scene",
+    "component": "ddz_main_scene",
     "handler": "set_button_click",
     "customEventData": ""
   },
@@ -3778,6 +3778,9 @@
     },
     "tishiPanel_prefab": {
       "__uuid__": "124d18f7-56ef-47d1-b272-cd6839648f51"
+    },
+    "history_panel": {
+      "__uuid__": "8a4ececc-75b8-4816-9056-475d9d56802e"
     }
   }
 ]

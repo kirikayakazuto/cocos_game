@@ -105,7 +105,7 @@ export default class loading extends cc.Component {
         }
         // 保存数据
         ugame.save_user_game_data(body);
-        cc.director.loadScene("home_scene");
+
 
         this.wait_node.active = true;
         //onProgress可以查看到加载进度

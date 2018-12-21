@@ -80,5 +80,6 @@ export default class Cmd {
         SEND_MSG: 21,   // 发送消息
 
         RECONNECT: 22,  // 重连
+        GET_HISTORY: 23, // 获取历史记录
     }
 }

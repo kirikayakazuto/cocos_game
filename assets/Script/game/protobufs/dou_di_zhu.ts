@@ -68,4 +68,10 @@ export default class dou_di_zhu {
     static send_msg(index: number) {
         websocket.send_cmd(Stype.GAME_DOU_DI_ZHU, Cmd.GameDouDiZhu.SEND_MSG, index);
     }
+    /**
+     * 获取历史记录
+     */
+    static get_history_record() {
+        websocket.send_cmd(Stype.GAME_DOU_DI_ZHU, Cmd.GameDouDiZhu.GET_HISTORY, null);
+    }
 }
