@@ -89,6 +89,7 @@ export default class NewClass extends cc.Component {
         let num = this.PrefixInteger(ugame.roomid, 6)
         this.roomid_label.string = num;
     }
+
     PrefixInteger(num: number, n: number) {
         return (Array(n).join('0') + num).slice(-n);
     }
@@ -149,6 +150,7 @@ export default class NewClass extends cc.Component {
             case Cmd.GameDouDiZhu.SEND_MSG:
                 this.send_msg_return(body);
             break;
+            
         }
     }
     /**

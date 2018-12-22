@@ -53,6 +53,8 @@ export default class NewClass extends cc.Component {
     tishiPanel_prefab: cc.Prefab = null;
     @property(cc.Prefab)
     history_panel: cc.Prefab = null;
+    @property(cc.Prefab)
+    shop_panel: cc.Prefab = null;
 
 
     service_handlers: {[key: string]: any} = {};
@@ -89,6 +91,9 @@ export default class NewClass extends cc.Component {
             break;
             case Cmd.GameDouDiZhu.GET_HISTORY:
                 this.get_history_return(body);
+            break;
+            case Cmd.GameDouDiZhu.BUG_ROOM_CARDS:
+                this.bug_room_cards_return(body);
             break;
             
         }
@@ -238,7 +243,6 @@ export default class NewClass extends cc.Component {
      * @param body 
      */
     get_history_return(body: any) {
-    
         if(body[0] != Response.OK) {
             console.log("get_history_return error");
             return ;
@@ -247,7 +251,32 @@ export default class NewClass extends cc.Component {
         node.getComponent("history_panel").add_item_to_content(body[1]);
         node.parent = this.centerNode;
     }
-    
+    /**
+     * 得到房卡
+     */
+    bug_room_cards_return(body: any) {
+        let node = cc.find("Canvas/center/shop_panel");
+        let shop_ctl = null;
+        if(node) {
+             shop_ctl = node.getComponent("shop_panel");   
+        }
+        if(body[0] != Response.OK) {
+            console.log("bug_room_cards_return error");
+            // 显示一个购买失败的标识
+            if(shop_ctl) {
+                shop_ctl.show_buy_result("购买失败!");
+            }
+            return ;
+        }
+        // 显示一个购买成功的标识
+        if(shop_ctl) {
+            shop_ctl.show_buy_result("购买成功!");
+        }
+
+        ugame.game_info.udata += body[1];
+        this.sync_info();
+
+    }
 
     sync_info() {
         this.unick.string = ugame.unick;    
@@ -280,6 +309,14 @@ export default class NewClass extends cc.Component {
 
     add_roomcard_button_click() {
         console.log("增加房卡");
+        this.shop_button_click();
+    }
+    /**
+     * 点击商店
+     */
+    shop_button_click() {
+        let node = cc.instantiate(this.shop_panel);
+        node.parent = this.centerNode;
     }
 
     wanfa_button_click(e, data) {

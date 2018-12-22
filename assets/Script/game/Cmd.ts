@@ -81,5 +81,7 @@ export default class Cmd {
 
         RECONNECT: 22,  // 重连
         GET_HISTORY: 23, // 获取历史记录
+
+        BUG_ROOM_CARDS: 24, // 购买房卡
     }
 }

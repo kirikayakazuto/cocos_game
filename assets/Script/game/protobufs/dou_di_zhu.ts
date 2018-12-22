@@ -74,4 +74,11 @@ export default class dou_di_zhu {
     static get_history_record() {
         websocket.send_cmd(Stype.GAME_DOU_DI_ZHU, Cmd.GameDouDiZhu.GET_HISTORY, null);
     }
+
+    /**
+     * 购买房卡
+     */
+    static bug_room_cards(num: number) {
+        websocket.send_cmd(Stype.GAME_DOU_DI_ZHU, Cmd.GameDouDiZhu.BUG_ROOM_CARDS, num);
+    }
 }
