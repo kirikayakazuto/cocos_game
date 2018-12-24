@@ -89,4 +89,16 @@ export default class auth {
         }
         websocket.send_cmd(Stype.Auth, Cmd.Auth.RESET_USER_PWD, body);
     }
+
+    static find_friend(str: string) {
+        websocket.send_cmd(Stype.Auth, Cmd.Auth.FIND_FRIENDS, str)
+    }
+
+    /**
+     * 添加好友
+     * @param str 
+     */
+    static add_friend(str: string) {
+        websocket.send_cmd(Stype.Auth, Cmd.Auth.ADD_FRIENDS, str)
+    }
 }

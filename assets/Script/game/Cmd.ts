@@ -16,7 +16,9 @@ export default class Cmd {
         PHONE_REG_ACCOUNT: 8, // 手机注册我们的账号,
         
         GET_FORGET_PWD_VERIFY: 9, // 获取修改密码的手机验证码
-		RESET_USER_PWD: 10, // 重置用户密码
+        RESET_USER_PWD: 10, // 重置用户密码
+        FIND_FRIENDS: 11, // 寻找好友
+        ADD_FRIENDS: 12, // 添加好友
     }
 
     static GameSystem = {

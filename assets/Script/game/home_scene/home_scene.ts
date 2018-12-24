@@ -109,6 +109,7 @@ export default class home_scene extends cc.Component {
      * -------------------------------------------- 登录验证 -------------------------------------------------
      */
     on_auth_server_return(stype: number, ctype: number, body: any) {
+        console.log(stype, ctype, body);
         switch(ctype) {
             case Cmd.Auth.RELOGIN:
                 console.log("error on_auth_server_return 游客账号已在别处登录");
@@ -121,6 +122,12 @@ export default class home_scene extends cc.Component {
             break;
             case Cmd.Auth.BIND_PHONE_NUM:
                 this.on_guest_bind_phone_return(body);
+            break;
+            case Cmd.Auth.FIND_FRIENDS:
+                this.find_friends_return(body);
+            break;
+            case Cmd.Auth.ADD_FRIENDS:
+                this.add_friends_return(body);
             break;
         }
     }
@@ -156,6 +163,30 @@ export default class home_scene extends cc.Component {
         }
         console.log("on_guest_bind_phone_return sucess !");
         ugame.guest_bind_phone_success();
+    }
+    /**
+     * 找好友
+     * @param body 
+     */
+    find_friends_return(body: any) {
+
+        if(body[0] != Response.OK) {
+            console.log("find_friends_return error " + body[0]);
+            this.friend_ctl.show_friend_info_item(null);    
+            return ;
+        }
+        this.friend_ctl.show_friend_info_item(body[1][0]);
+    }
+    /**
+     * 添加好友
+     * @param body 
+     */
+    add_friends_return(body: any) {
+        if(body != Response.OK) {
+            console.log("add_friends_return error: " + status);
+        }
+        this.friend_ctl.show_add_friends_result(body);
+
     }
     /**
      * --------------------------------  界面 --------------

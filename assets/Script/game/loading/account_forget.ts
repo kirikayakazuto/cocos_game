@@ -26,6 +26,7 @@ export default class NewClass extends cc.Component {
     }
 
     start () {
+        
     }
 
     on_close_click() {

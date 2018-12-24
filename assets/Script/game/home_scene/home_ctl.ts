@@ -76,6 +76,7 @@ export default class NewClass extends cc.Component {
         }
         this.show_main_list();
     }
+    
     // 进入某个游戏区间块
     on_enter_zone_click(e, zid) {
         zid = parseInt(zid);
