@@ -1,5 +1,5 @@
 import utils from "../utils/utils";
-import { game_info } from "./info_interface";
+import { game_info, user_info } from "./info_interface";
 
 export default class ugame {
 
@@ -19,6 +19,9 @@ export default class ugame {
     static roomid = -1; // 房间id
 
     static prev_round_data = null;  // 上局回顾数据包
+
+    static friends_list: Array<user_info> = [];
+    static request_auth_list: Array<user_info> = [];
 
     
     static game_info: game_info = null; // 游戏数据库 的用户信息
@@ -129,6 +132,20 @@ export default class ugame {
      */
     static reconnect_room(body) {
         
+    }
+    /**
+     * 保存好友列表
+     */
+    static save_friends_list_data(friends_list, request_auth_list) {
+        this.friends_list = friends_list;
+        this.request_auth_list = request_auth_list;
+    }
+
+    static get_friends_list() {
+        return this.friends_list;
+    }
+    static get_request_auth_list() {
+        return this.request_auth_list;
     }
 }
 

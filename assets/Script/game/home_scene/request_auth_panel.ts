@@ -1,4 +1,5 @@
 import { user_info } from "../info_interface";
+import ugame from "../ugame";
 
 const {ccclass, property} = cc._decorator;
 
@@ -16,17 +17,20 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     contentNode: cc.Node = null;
 
+    request_auth_list: Array<user_info> = [];
 
-    // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {}
-
-    start () {
-
+    onLoad () {
+        this.request_auth_list = ugame.get_request_auth_list();
+        this.show_uinfo_item();
     }
 
-    show_uinfo_item(uinfo: Array<user_info>) {
+    start () {
+        
+    }
 
+    show_uinfo_item() {
+        let uinfo = this.request_auth_list;
+        console.log(uinfo);
         if(uinfo == null || uinfo.length <=0) {
             this.error_node.active = true;
             return ;

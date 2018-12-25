@@ -1,4 +1,5 @@
 import ugame from "../ugame";
+import auth from "../protobufs/auth";
 
 const {ccclass, property} = cc._decorator;
 
@@ -14,6 +15,8 @@ export default class NewClass extends cc.Component {
     back: cc.Node = null;
     @property(cc.Label)
     title_label: cc.Label = null;
+    @property(cc.Node)
+    request_friends: cc.Node = null;
 
     @property(cc.Prefab)
     add_friend_prefab: cc.Prefab = null;
@@ -29,11 +32,40 @@ export default class NewClass extends cc.Component {
 
     start () {
         this.sync_info();
+        this.send_request_friends();
+    }
+    /**
+     * 加载完成发送一次好友列表刷新请求 当用户点击验证请求是在发送一次
+     */
+    send_request_friends() {
+        auth.send_friends_request();
     }
 
     sync_info() {
         this.unick.string = ugame.unick;    
     }
+    /**
+     * 显示请求验证数量
+     * @param num 
+     */
+    show_request_friend_num(num: number) {
+        this.request_friends.getChildByName("str").getComponent(cc.Label).string = "" + num
+        this.request_friends.getChildByName("str").active = true;
+    }
+
+    show_request_friends_list(friends_list: any) {
+
+    }
+    /**
+     * 显示好友列表
+     */
+    show_friends_list(friend_list: any) {
+        let node = this.node.getChildByName("request_auth_prefab");
+        if(node) {
+            node.getComponent("request_auth_prefab").show_uinfo_item(friend_list);
+        }
+    }
+
     /**
      * 添加好友
      */
@@ -96,3 +128,5 @@ export default class NewClass extends cc.Component {
 
     // update (dt) {}
 }
+
+

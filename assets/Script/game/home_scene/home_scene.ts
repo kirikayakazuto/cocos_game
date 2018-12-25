@@ -35,6 +35,8 @@ export default class home_scene extends cc.Component {
     @property(cc.Prefab)
     login_bonues_prefab: cc.Prefab = null;
 
+
+
     tab_button_com_set: Array<tab_button> = [];
     // 服务列表
     service_handlers: {[key: string]: any} = {};
@@ -129,6 +131,9 @@ export default class home_scene extends cc.Component {
             case Cmd.Auth.ADD_FRIENDS:
                 this.add_friends_return(body);
             break;
+            case Cmd.Auth.GET_FRIENDS_REQUEST:
+                this.get_friends_return(body);
+            break;
         }
     }
 
@@ -187,6 +192,24 @@ export default class home_scene extends cc.Component {
         }
         this.friend_ctl.show_add_friends_result(body);
 
+    }
+    /**
+     * 获取游戏请求
+     * @param body 
+     */
+    get_friends_return(body: any) {
+        if(body[0] != Response.OK) {
+            if(body[0] == Response.HAS_NO_THINGS) { // 没有
+
+            }
+            return ;
+        }
+        ugame.save_friends_list_data(body[1], body[2]);
+        this.friend_ctl.show_request_friend_num(body[2].length);
+        // 遇到一个问题, 代码无法正确执行, 因为当show_friends_list执行时, 
+
+        // 解决方案一   把数据存入ugame中, 等到玩家点击到好友 在刷新列表
+        
     }
     /**
      * --------------------------------  界面 --------------

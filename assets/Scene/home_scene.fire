@@ -12004,7 +12004,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "item",
+    "_name": "request_friends",
     "_objFlags": 0,
     "_parent": {
       "__id__": 271
@@ -12468,7 +12468,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 311
@@ -15799,11 +15799,14 @@
     "title_label": {
       "__id__": 259
     },
+    "request_friends": {
+      "__id__": 299
+    },
     "add_friend_prefab": {
       "__uuid__": "2b48cafd-0d7e-4eee-9e94-14bfc0f1ad39"
     },
     "request_auth_prefab": {
-      "__uuid__": "ee0e118b-481f-41d0-af62-fecd076f3ae6"
+      "__uuid__": "427f22a1-9a3a-499f-baec-141eeafe10a1"
     }
   },
   {

@@ -17,8 +17,12 @@ export default class Cmd {
         
         GET_FORGET_PWD_VERIFY: 9, // 获取修改密码的手机验证码
         RESET_USER_PWD: 10, // 重置用户密码
+
         FIND_FRIENDS: 11, // 寻找好友
         ADD_FRIENDS: 12, // 添加好友
+
+        GET_FRIENDS_REQUEST: 13, // 获取好友添加请求
+
     }
 
     static GameSystem = {

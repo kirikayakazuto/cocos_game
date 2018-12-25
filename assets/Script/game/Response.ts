@@ -28,4 +28,6 @@ export default class Response {
     static ROOM_CARDS_TOO_MANY = -121;  // 房卡太多
     static IS_FRIEND = -122;    // 已经是好友了
     static HAS_SEND_ADD_FRIEND = -123;  // 已经发送了请求
+
+    static HAS_NO_THINGS = 124; // 数据库中没有数据
 }
