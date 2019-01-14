@@ -1,9 +1,5 @@
 import check_box from "../../component/check_box"
 import ugame from "../ugame";
-import {user_info} from "../info_interface"
-import websocket from "../../modules/websocket";
-import Stype from "../Stype";
-import Cmd from "../Cmd";
 import auth from "../protobufs/auth";
 const {ccclass, property} = cc._decorator;
 

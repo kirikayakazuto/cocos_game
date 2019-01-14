@@ -101,8 +101,17 @@ export default class auth {
     static add_friend(str: string) {
         websocket.send_cmd(Stype.Auth, Cmd.Auth.ADD_FRIENDS, str)
     }
-
-    static send_friends_request() {
+    /**
+     * 获取添加好友请求
+     */
+    static get_friends_request() {
         websocket.send_cmd(Stype.Auth, Cmd.Auth.GET_FRIENDS_REQUEST, null);
+    }
+
+    /**
+     * 响应添加好友
+     */
+    static response_friend_request(body: any) {
+        websocket.send_cmd(Stype.Auth, Cmd.Auth.RESPONSE_FRIENDS_REQUEST, body)
     }
 }

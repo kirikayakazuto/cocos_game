@@ -28,7 +28,7 @@
   "renderMode": "0",
   "startScene": "c184a2ae-c2fd-4030-8b80-c0657429366c",
   "title": "ddz",
-  "webOrientation": "auto",
+  "webOrientation": "landscape",
   "wechatgame": {
     "REMOTE_SERVER_ROOT": "",
     "appid": "wx6ac3f5090a6b99c5",

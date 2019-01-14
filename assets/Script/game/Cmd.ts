@@ -23,6 +23,8 @@ export default class Cmd {
 
         GET_FRIENDS_REQUEST: 13, // 获取好友添加请求
 
+        RESPONSE_FRIENDS_REQUEST: 14,   // 响应好友添加请求
+
     }
 
     static GameSystem = {

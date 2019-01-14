@@ -17,11 +17,15 @@ export default class NewClass extends cc.Component {
     title_label: cc.Label = null;
     @property(cc.Node)
     request_friends: cc.Node = null;
+    @property(cc.Node)
+    content_node: cc.Node = null;
 
     @property(cc.Prefab)
     add_friend_prefab: cc.Prefab = null;
     @property(cc.Prefab)
     request_auth_prefab: cc.Prefab = null;
+    @property(cc.Prefab)
+    friend_info_item: cc.Prefab = null;
 
     // 二级页面
     second_ui: cc.Node = null;
@@ -38,7 +42,7 @@ export default class NewClass extends cc.Component {
      * 加载完成发送一次好友列表刷新请求 当用户点击验证请求是在发送一次
      */
     send_request_friends() {
-        auth.send_friends_request();
+        auth.get_friends_request();
     }
 
     sync_info() {
@@ -52,20 +56,29 @@ export default class NewClass extends cc.Component {
         this.request_friends.getChildByName("str").getComponent(cc.Label).string = "" + num
         this.request_friends.getChildByName("str").active = true;
     }
-
-    show_request_friends_list(friends_list: any) {
-
-    }
     /**
-     * 显示好友列表
+     * 显示好友请求列表
+     * 暂无作用
+     * @param friends_list 
      */
-    show_friends_list(friend_list: any) {
+    /* show_request_friends_list(friend_list: any) {
         let node = this.node.getChildByName("request_auth_prefab");
         if(node) {
             node.getComponent("request_auth_prefab").show_uinfo_item(friend_list);
         }
-    }
+    } */
 
+    
+    /**
+     * 显示好友列表
+     */
+    show_friends_list(friend_list: Array<any>) {
+        for(let i=0; i<friend_list.length; i++) {
+            let node = cc.instantiate(this.friend_info_item);
+            node.getChildByName("uinck").getComponent(cc.Label).string = friend_list[i].unick;
+            node.parent = this.content_node;
+        }
+    }
     /**
      * 添加好友
      */
@@ -85,7 +98,13 @@ export default class NewClass extends cc.Component {
         this.hide_main_list("验证请求");
     }
 
-
+    // 删除请求玩家信息
+    delete_request_list_by_uname(uname: string) {
+        let node = this.node.getChildByName("request_auth_panel");
+        if(node) {
+            node.getComponent("request_auth_panel").remove_item_by_uname(uname);
+        }
+    }
     /**
      * 显示好友
      */
@@ -110,7 +129,7 @@ export default class NewClass extends cc.Component {
     show_main_list() {
         this.back.active = false;
         this.main_list.active = true;
-        this.title_label.string = "我";
+        this.title_label.string = "好友";
     }
     hide_main_list(title: string) {
         this.back.active = true;

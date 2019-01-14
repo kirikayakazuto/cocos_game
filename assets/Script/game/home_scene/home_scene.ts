@@ -134,7 +134,22 @@ export default class home_scene extends cc.Component {
             case Cmd.Auth.GET_FRIENDS_REQUEST:
                 this.get_friends_return(body);
             break;
+            case Cmd.Auth.RESPONSE_FRIENDS_REQUEST:
+                this.response_friends_request(body);
+            break;
         }
+    }
+    /**
+     * 收到服务器对 好友请求的响应
+     */
+    response_friends_request(body: any) {
+        if(body[0] != Response.OK) {
+            console.log("response_friends_request error");
+            return ;
+        }
+        // 删除该请求 需要uname
+        let uname = body[1];
+        this.friend_ctl.delete_request_list_by_uname(uname);
     }
 
     // 修改资料成功
@@ -206,6 +221,7 @@ export default class home_scene extends cc.Component {
         }
         ugame.save_friends_list_data(body[1], body[2]);
         this.friend_ctl.show_request_friend_num(body[2].length);
+        this.friend_ctl.show_friends_list(body[1]);
         // 遇到一个问题, 代码无法正确执行, 因为当show_friends_list执行时, 
 
         // 解决方案一   把数据存入ugame中, 等到玩家点击到好友 在刷新列表
