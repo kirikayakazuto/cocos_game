@@ -3,8 +3,6 @@ export default class Stype {
      * ---------------------------------- 测试服务 -----------------------------------------
      */
      
-    // 服务号
-    static TalkRoom: number = 1;   
     /**
      * ----------------------------------- 登录服务 -----------------------------------------------
      * auth 服务用户 账号的登录验证,   游客账号
@@ -21,17 +19,19 @@ export default class Stype {
         GET_FORGET_PWD_VERIFY: 9, // 获取修改密码的手机验证码
 		RESET_USER_PWD: 10, // 重置用户密码
      */
-    // 广播协议
-    static Broadcast: number = 10000;
+    // 服务号
+    static TalkRoom: number = 1;  
     
     static Auth:number =  2;
 
     /**
      * ---------------------------------- 正式的游戏服务 -------------------------------
      */
-     static GAME_SYSTEM: number = 3;
-     static GAME_FIVE_CHESS: number = 4;
-     static GAME_DOU_DI_ZHU: number = 5;
-    
+    static GAME_SYSTEM: number = 3;
+    static GAME_FIVE_CHESS: number = 4;
+    static GAME_DOU_DI_ZHU: number = 5;
+
+    // 广播协议
+    static Broadcast: number = 10000;
 
 }

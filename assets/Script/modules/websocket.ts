@@ -74,6 +74,10 @@ export default class  websocket {
         this.services_handler = services_handler;
     }
 
+    static add_services_handler(stype: number, func: any) {
+        this.services_handler[stype] = func;
+    }
+
 }
 
 // 连接服务器

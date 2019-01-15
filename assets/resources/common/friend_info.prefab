@@ -37,9 +37,13 @@
     ],
     "_tag": -1,
     "_active": true,
-    "_components": [],
+    "_components": [
+      {
+        "__id__": 28
+      }
+    ],
     "_prefab": {
-      "__id__": 28
+      "__id__": 29
     },
     "_id": "",
     "_opacity": 255,
@@ -774,14 +778,14 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "message_numbg",
+    "_name": "status",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
     },
     "_children": [],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 26
@@ -794,9 +798,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 112,
+      "g": 128,
+      "b": 144,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -835,7 +839,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "65ba362a-4c97-4eb5-ab92-dd37053416e8"
+      "__uuid__": "0175b4c3-f12a-4251-a65e-7b54c01b66ad"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -862,6 +866,58 @@
     },
     "fileId": "beKuS8IVNJwY5H9TrZbKei",
     "sync": false
+  },
+  {
+    "__type__": "cc.Button",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "transition": 0,
+    "pressedColor": {
+      "__type__": "cc.Color",
+      "r": 211,
+      "g": 211,
+      "b": 211,
+      "a": 255
+    },
+    "hoverColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "duration": 0.1,
+    "zoomScale": 1.2,
+    "clickEvents": [],
+    "_N$interactable": true,
+    "_N$enableAutoGrayEffect": false,
+    "_N$normalColor": {
+      "__type__": "cc.Color",
+      "r": 214,
+      "g": 214,
+      "b": 214,
+      "a": 255
+    },
+    "_N$disabledColor": {
+      "__type__": "cc.Color",
+      "r": 124,
+      "g": 124,
+      "b": 124,
+      "a": 255
+    },
+    "_N$normalSprite": null,
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
+    "_N$disabledSprite": null,
+    "_N$target": {
+      "__id__": 1
+    }
   },
   {
     "__type__": "cc.PrefabInfo",

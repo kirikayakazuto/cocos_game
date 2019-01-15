@@ -2,6 +2,8 @@ import ugame from "../ugame";
 import md5 = require("../../3rd/md5");
 import auth from "../protobufs/auth";
 
+// import auth from "../protobufs/auth"
+
 const {ccclass, property} = cc._decorator;
 
 @ccclass

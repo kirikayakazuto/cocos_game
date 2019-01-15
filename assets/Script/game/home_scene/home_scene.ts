@@ -50,7 +50,25 @@ export default class home_scene extends cc.Component {
 
         this.service_handlers[Stype.Auth] = this.on_auth_server_return.bind(this);
         this.service_handlers[Stype.GAME_SYSTEM] = this.on_system_server_return.bind(this);
+        this.service_handlers[Stype.TalkRoom] = this.on_friend_server_return.bind(this);
         websocket.register_services_handler(this.service_handlers);
+    }
+    /**
+     * ----------------------------------------- 好友系统管理 -----------------------------------------
+     * @param stype 
+     * @param ctype 
+     * @param body 
+     */
+    on_friend_server_return(stype: number, ctype: number, body: any) {
+        console.log(stype, ctype, body);
+        switch(ctype) {
+            case Cmd.TalkRoom.ENTER_TALK:
+
+            break;
+            case Cmd.TalkRoom.GET_ONLINE_FRIENDS:
+                
+            break;
+        }
     }
      /**
      * ---------------------------------------- 游戏系统管理 ------------------------------------

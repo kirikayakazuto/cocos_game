@@ -1,5 +1,6 @@
 import ugame from "../ugame";
 import auth from "../protobufs/auth";
+import talk_room from "../protobufs/talk_room";
 
 const {ccclass, property} = cc._decorator;
 
@@ -26,17 +27,29 @@ export default class NewClass extends cc.Component {
     request_auth_prefab: cc.Prefab = null;
     @property(cc.Prefab)
     friend_info_item: cc.Prefab = null;
+    @property(cc.Prefab)
+    talk_room_prefab: cc.Prefab = null;
 
     // 二级页面
     second_ui: cc.Node = null;
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {}
+    onLoad () {
+        talk_room.enter_talk();
+    }
 
     start () {
         this.sync_info();
         this.send_request_friends();
+        this.get_online_friends();
+
+    }
+    /**
+     * 获取现在好友
+     */
+    get_online_friends() {
+        talk_room.get_online_friends();
     }
     /**
      * 加载完成发送一次好友列表刷新请求 当用户点击验证请求是在发送一次
@@ -76,6 +89,19 @@ export default class NewClass extends cc.Component {
         for(let i=0; i<friend_list.length; i++) {
             let node = cc.instantiate(this.friend_info_item);
             node.getChildByName("uinck").getComponent(cc.Label).string = friend_list[i].unick;
+            node.getChildByName("status").color = new cc.Color(112, 128, 144, 255);
+            // 蓝色 0 0 255 红色 255 0 0
+    
+
+            let clickEventHandler = new cc.Component.EventHandler();
+            clickEventHandler.target = this.node; //这个 node 节点是你的事件处理代码组件所属的节点
+            clickEventHandler.component = "friend_ctl";//这个是代码文件名
+            clickEventHandler.handler = "show_talk_room_panel";
+            clickEventHandler.customEventData = "" + friend_list[i].unick;
+
+            let button = node.getComponent(cc.Button);
+            button.clickEvents.push(clickEventHandler);
+
             node.parent = this.content_node;
         }
     }
@@ -87,6 +113,15 @@ export default class NewClass extends cc.Component {
         this.second_ui.parent = this.node;
 
         this.hide_main_list("添加好友");
+    }
+    /**
+     * 显示聊天界面
+     */
+    show_talk_room_panel(e, data) {
+        this.second_ui = cc.instantiate(this.talk_room_prefab);
+        this.second_ui.parent = this.node;
+
+        this.hide_main_list(data);
     }
     /**
      * 验证请求

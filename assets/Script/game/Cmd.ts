@@ -17,39 +17,41 @@ export default class Cmd {
         
         GET_FORGET_PWD_VERIFY: 9, // 获取修改密码的手机验证码
         RESET_USER_PWD: 10, // 重置用户密码
-
         FIND_FRIENDS: 11, // 寻找好友
-        ADD_FRIENDS: 12, // 添加好友
+        ADD_FRIENDS: 12, //  添加好友
 
         GET_FRIENDS_REQUEST: 13, // 获取好友添加请求
-
-        RESPONSE_FRIENDS_REQUEST: 14,   // 响应好友添加请求
-
+        RESPONSE_FRIENDS_REQUEST: 14,   // 接收或拒绝添加好友的请求
+        
     }
 
     static GameSystem = {
         GET_GAME_INFO: 1,   // 获取游戏信息
         LOGIN_BONUES_INFO: 2, // 获取登录奖励
-        RECV_LOGIN_BUNUES: 3, // 领取登陆奖励
+        RECV_LOGIN_BUNUES: 3, // 发放登录奖励
         GET_WORLD_RANK_INFO: 4, // 获取世界全局的排行榜信息
     }
 
+    static TalkRoom = {
+        ENTER_TALK: 1,  // 进入聊天
+        GET_ONLINE_FRIENDS: 2, // 获取所有在线的好友
+    }
+    
     // 五子棋游戏命令
 	static GameFiveChess = {
         ENTER_ZONE: 1, // 进入游戏区间
         USER_QUIT: 2,   // 玩家退出游戏区间
         ENTER_ROOM: 3, // 玩家进入房间的桌子
         EXIT_ROOM: 4, // 玩家离开房间的桌子;
-        
         SITDOWN: 5, // 玩家坐下
         STANDUP: 6, // 玩家站起,
-        
+
         USER_ARRIVED: 7, // 其他玩家抵达,
         SEND_PROP: 8, // 发送道具
 
         SEND_DO_READY: 9,   // 准备好了
         ROUND_START: 10, // 游戏开始了
-        TURN_TO_PLAYER: 11, // 轮到哪个玩家
+        TURN_TO_PLAYER: 11, // 轮到那个玩家  继续游戏
         PUT_CHESS: 12, // 下棋
         CHECKOUT: 13, // 结算
         CHECKOUT_OVER: 14, // 游戏结算结束
@@ -60,7 +62,7 @@ export default class Cmd {
     static GameDouDiZhu = {
         ENTER_ZONE: 1, // 进入游戏区间
         QUIT_ZONE: 2, // 退出游戏区间
-
+        
         ENTER_ROOM: 3, // 玩家进入房间
         EXIT_ROOM: 4, // 玩家离开房间;
         CREATE_ROOM: 5, // 玩家创建房间
@@ -72,7 +74,9 @@ export default class Cmd {
 
         SEND_DO_READY: 9,   // 准备好了
         SEND_NOT_READY: 10, // 取消准备
+
         ROUND_START: 11, // 游戏开始了
+
         SEND_CARDS: 12,    // 发牌
 
         TURN_TO_PLAYER: 13, // 轮到哪个玩家
@@ -81,6 +85,7 @@ export default class Cmd {
 
         PLAYER_SEND_CARDS: 16,   // 出牌
         PLAYER_NO_CARDS: 17,    // 玩家的牌出完了
+
         CHECK_OUT_GAME: 18, // 游戏结算
         CHECK_OUT_OVER: 19, // 结算结束, 可以开始新的一句游戏了
 
@@ -88,8 +93,9 @@ export default class Cmd {
         SEND_MSG: 21,   // 发送消息
 
         RECONNECT: 22,  // 重连
-        GET_HISTORY: 23, // 获取历史记录
 
+        GET_HISTORY: 23, // 获取历史记录
         BUG_ROOM_CARDS: 24, // 购买房卡
+        
     }
 }
