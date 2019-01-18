@@ -35,6 +35,9 @@ export default class Cmd {
     static TalkRoom = {
         ENTER_TALK: 1,  // 进入聊天
         GET_ONLINE_FRIENDS: 2, // 获取所有在线的好友
+        TALK_WITH_FRIEND: 3,    // 发送消息给好友
+        SEND_TALK_MSG: 4,   // 发送聊天内容 统一接口
+        GET_HISTORY_TALK_MSG: 5, // 获取历史聊天记录
     }
     
     // 五子棋游戏命令

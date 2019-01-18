@@ -66,7 +66,16 @@ export default class home_scene extends cc.Component {
 
             break;
             case Cmd.TalkRoom.GET_ONLINE_FRIENDS:
-                
+                this.friend_ctl.show_online_friends(body);
+            break;
+            case Cmd.TalkRoom.TALK_WITH_FRIEND: // 发送成功
+                this.friend_ctl.clear_exitbox_input(body);
+            break;
+            case Cmd.TalkRoom.SEND_TALK_MSG:    // 收到消息
+                this.friend_ctl.show_talk_msg(body);
+            break;
+            case Cmd.TalkRoom.GET_HISTORY_TALK_MSG:
+                this.friend_ctl.show_history_talk_msg(body);
             break;
         }
     }
