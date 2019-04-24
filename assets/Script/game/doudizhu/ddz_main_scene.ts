@@ -203,8 +203,7 @@ export default class NewClass extends cc.Component {
         //使用preloadScene()预加载场景
         cc.director.preloadScene('home_scene',function(){
             cc.loader["onProgress"]= null;
-            let frameSize = cc.view.getFrameSize(); 
-            cc.view.setFrameSize(frameSize.height,frameSize.width);
+            cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT);
             cc.director.loadScene('home_scene');
         });
     }

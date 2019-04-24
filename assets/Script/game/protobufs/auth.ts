@@ -114,4 +114,8 @@ export default class auth {
     static response_friend_request(body: any) {
         websocket.send_cmd(Stype.Auth, Cmd.Auth.RESPONSE_FRIENDS_REQUEST, body)
     }
+
+    static get_app_sig(data: string) {
+        websocket.send_cmd(Stype.Auth, Cmd.Auth.GET_APP_SIG, data)
+    }
 }

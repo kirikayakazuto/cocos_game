@@ -101,6 +101,7 @@ export default class NewClass extends cc.Component {
                 cc.loader["onProgress"]= null;
                 let frameSize = cc.view.getFrameSize(); 
                 cc.view.setFrameSize(frameSize.height,frameSize.width);
+    cc.view.setOrientation(cc.macro.ORIENTATION_LANDSCAPE);
                 cc.director.loadScene('ddz_main_scene');
             });
         }

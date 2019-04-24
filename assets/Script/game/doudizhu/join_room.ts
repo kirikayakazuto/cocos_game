@@ -1,5 +1,4 @@
 import dou_di_zhu from "../protobufs/dou_di_zhu";
-import ugame from "../ugame";
 
 const {ccclass, property} = cc._decorator;
 

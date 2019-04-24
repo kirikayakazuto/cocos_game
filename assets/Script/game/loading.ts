@@ -7,6 +7,7 @@ import websocket from "../modules/websocket";
 import Response from "./Response";
 
 import game_system from "../game/protobufs/game_system"
+import QQLoginCtl from "../lib/QQLoginCtl";
 
 const {ccclass, property} = cc._decorator;
 
@@ -21,9 +22,13 @@ export default class loading extends cc.Component {
     @property(cc.Node)
     wait_node: cc.Node = null;
     wait_label: cc.Label = null;
+
+    can_QQ_login = false;
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
+
+        
         let service_handlers:{[key: string] : any} = {};
         service_handlers[Stype.Auth] = this.on_auth_server_return.bind(this);
         service_handlers[Stype.GAME_SYSTEM] = this.on_game_system_server_return.bind(this);
@@ -32,7 +37,27 @@ export default class loading extends cc.Component {
     }
 
     start () {
+
+    }
+
+    /**
+     * qq登录
+     */
+    qq_login() {
         
+    }
+    /**
+     * 显示信息
+     * @param str 
+     */
+    show_tips(str: string) {
+
+    }
+    /**
+     * 微信登录
+     */
+    wx_login() {
+        // this.get_app_sig();
     }
     // 游客账号  登录成功
     guest_login_return(body: user_info) {
@@ -166,6 +191,7 @@ export default class loading extends cc.Component {
             case Cmd.Auth.RESET_USER_PWD:
                 this.on_reset_pwd_return(body);
             break;
+
 
         }
     }

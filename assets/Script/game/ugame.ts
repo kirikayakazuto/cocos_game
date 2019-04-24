@@ -3,6 +3,14 @@ import { game_info, user_info } from "./info_interface";
 
 export default class ugame {
 
+    static app_sig = "";
+    static app_data_sig = "";
+    static avatarUrl = "";  // 头像地址
+    static nickName = "";   // qq昵称
+    static qbopenid = "";   // 唯一标识
+    static qbopenkey = "";  // openkey
+    static refreshToken = "";   // token 身份验证
+
     static unick: string = "";  // 昵称
     static usex: number = -1;   // 性别
     static uface: number = 0;   // 头像

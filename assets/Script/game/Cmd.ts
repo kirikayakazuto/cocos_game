@@ -22,6 +22,7 @@ export default class Cmd {
 
         GET_FRIENDS_REQUEST: 13, // 获取好友添加请求
         RESPONSE_FRIENDS_REQUEST: 14,   // 接收或拒绝添加好友的请求
+        GET_APP_SIG: 15,    // 获取签名
         
     }
 
